@@ -8,18 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		C09BC86E2B25E09D00715AA1 /* tca_demoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09BC86D2B25E09D00715AA1 /* tca_demoApp.swift */; };
-		C09BC8702B25E09D00715AA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09BC86F2B25E09D00715AA1 /* ContentView.swift */; };
+		C09BC8702B25E09D00715AA1 /* DayScheduleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09BC86F2B25E09D00715AA1 /* DayScheduleListView.swift */; };
 		C09BC8722B25E09E00715AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09BC8712B25E09E00715AA1 /* Assets.xcassets */; };
 		C09BC8752B25E09E00715AA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09BC8742B25E09E00715AA1 /* Preview Assets.xcassets */; };
 		C09BC87D2B25E12900715AA1 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C09BC87C2B25E12900715AA1 /* ComposableArchitecture */; };
+		C0F090532B25EBDA002D5A58 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F090522B25EBDA002D5A58 /* Color+Extensions.swift */; };
+		C0F090572B25EFA6002D5A58 /* DayScheduleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F090562B25EFA6002D5A58 /* DayScheduleDetailView.swift */; };
+		C0F0905C2B25EFFE002D5A58 /* DaySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0905B2B25EFFE002D5A58 /* DaySchedule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C09BC86A2B25E09D00715AA1 /* tca-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tca-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09BC86D2B25E09D00715AA1 /* tca_demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tca_demoApp.swift; sourceTree = "<group>"; };
-		C09BC86F2B25E09D00715AA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C09BC86F2B25E09D00715AA1 /* DayScheduleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayScheduleListView.swift; sourceTree = "<group>"; };
 		C09BC8712B25E09E00715AA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C09BC8742B25E09E00715AA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C0F090522B25EBDA002D5A58 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		C0F090562B25EFA6002D5A58 /* DayScheduleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayScheduleDetailView.swift; sourceTree = "<group>"; };
+		C0F0905B2B25EFFE002D5A58 /* DaySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySchedule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				C09BC86D2B25E09D00715AA1 /* tca_demoApp.swift */,
-				C09BC86F2B25E09D00715AA1 /* ContentView.swift */,
+				C0F0905A2B25EFE8002D5A58 /* Model */,
+				C0F090512B25EBC5002D5A58 /* Extension */,
+				C09BC87E2B25E26000715AA1 /* Main */,
 				C09BC8712B25E09E00715AA1 /* Assets.xcassets */,
 				C09BC8732B25E09E00715AA1 /* Preview Content */,
 			);
@@ -67,6 +75,31 @@
 				C09BC8742B25E09E00715AA1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C09BC87E2B25E26000715AA1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C09BC86F2B25E09D00715AA1 /* DayScheduleListView.swift */,
+				C0F090562B25EFA6002D5A58 /* DayScheduleDetailView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C0F090512B25EBC5002D5A58 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C0F090522B25EBDA002D5A58 /* Color+Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C0F0905A2B25EFE8002D5A58 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C0F0905B2B25EFFE002D5A58 /* DaySchedule.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C09BC8702B25E09D00715AA1 /* ContentView.swift in Sources */,
+				C09BC8702B25E09D00715AA1 /* DayScheduleListView.swift in Sources */,
+				C0F090572B25EFA6002D5A58 /* DayScheduleDetailView.swift in Sources */,
 				C09BC86E2B25E09D00715AA1 /* tca_demoApp.swift in Sources */,
+				C0F090532B25EBDA002D5A58 /* Color+Extensions.swift in Sources */,
+				C0F0905C2B25EFFE002D5A58 /* DaySchedule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
