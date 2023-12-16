@@ -8,22 +8,14 @@
 import SwiftUI
 
 struct DayScheduleListView: View {
-    let scheduleArray = [
-        DaySchedule(day: .monday, schedule: .busy),
-        DaySchedule(day: .tuesday, schedule: .busy),
-        DaySchedule(day: .wednesday, schedule: .busy),
-        DaySchedule(day: .thursday, schedule: .veryBusy),
-        DaySchedule(day: .friday, schedule: .veryBusy),
-        DaySchedule(day: .saturday, schedule: .free),
-        DaySchedule(day: .sunday, schedule: .free)
-    ]
-
+    @EnvironmentObject var viewModel: DayScheduleViewModel
+    
     var body: some View {
         NavigationStack {
             List {
-                ForEach(scheduleArray, id: \.id) { daySchedule in
+                ForEach(viewModel.scheduleArray, id: \.id) { daySchedule in
                     NavigationLink(value: daySchedule) {
-                        DayScheduleRow(daySchedule: daySchedule)
+                        DayScheduleListRow(daySchedule: daySchedule)
                     }
                 }
             }
@@ -35,7 +27,7 @@ struct DayScheduleListView: View {
     }
 }
 
-struct DayScheduleRow: View {
+struct DayScheduleListRow: View {
     var daySchedule: DaySchedule
     
     var body: some View {
@@ -45,8 +37,4 @@ struct DayScheduleRow: View {
             SquareView(color: daySchedule.schedule.color, size: 15)
         }
     }
-}
-
-#Preview {
-    DayScheduleListView()
 }

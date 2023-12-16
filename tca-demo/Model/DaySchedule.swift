@@ -36,7 +36,7 @@ enum Day {
     }
 }
 
-enum Schedule {
+enum Schedule: CaseIterable {
     case free, busy, veryBusy
     
     var string: String {

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct tca_demoApp: App {
+    @ObservedObject var viewModel = DayScheduleViewModel()
+    
     var body: some Scene {
         WindowGroup {
             DayScheduleListView()
+                .environmentObject(viewModel)
         }
     }
 }
