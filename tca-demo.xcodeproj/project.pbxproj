@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02E46F62B2DDB6700114CEE /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E46F52B2DDB6700114CEE /* SquareView.swift */; };
 		C09BC86E2B25E09D00715AA1 /* tca_demoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09BC86D2B25E09D00715AA1 /* tca_demoApp.swift */; };
 		C09BC8702B25E09D00715AA1 /* DayScheduleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09BC86F2B25E09D00715AA1 /* DayScheduleListView.swift */; };
 		C09BC8722B25E09E00715AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09BC8712B25E09E00715AA1 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C02E46F52B2DDB6700114CEE /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
 		C09BC86A2B25E09D00715AA1 /* tca-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tca-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09BC86D2B25E09D00715AA1 /* tca_demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tca_demoApp.swift; sourceTree = "<group>"; };
 		C09BC86F2B25E09D00715AA1 /* DayScheduleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayScheduleListView.swift; sourceTree = "<group>"; };
@@ -40,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C02E46F42B2DDB5000114CEE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C02E46F52B2DDB6700114CEE /* SquareView.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		C09BC8612B25E09D00715AA1 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +72,7 @@
 				C09BC86D2B25E09D00715AA1 /* tca_demoApp.swift */,
 				C0F0905A2B25EFE8002D5A58 /* Model */,
 				C0F090512B25EBC5002D5A58 /* Extension */,
+				C02E46F42B2DDB5000114CEE /* Helper */,
 				C09BC87E2B25E26000715AA1 /* Main */,
 				C09BC8712B25E09E00715AA1 /* Assets.xcassets */,
 				C09BC8732B25E09E00715AA1 /* Preview Content */,
@@ -181,6 +192,7 @@
 				C09BC8702B25E09D00715AA1 /* DayScheduleListView.swift in Sources */,
 				C0F090572B25EFA6002D5A58 /* DayScheduleDetailView.swift in Sources */,
 				C09BC86E2B25E09D00715AA1 /* tca_demoApp.swift in Sources */,
+				C02E46F62B2DDB6700114CEE /* SquareView.swift in Sources */,
 				C0F090532B25EBDA002D5A58 /* Color+Extensions.swift in Sources */,
 				C0F0905C2B25EFFE002D5A58 /* DaySchedule.swift in Sources */,
 			);

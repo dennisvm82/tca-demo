@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DaySchedule: Identifiable {
+struct DaySchedule: Identifiable, Hashable {
     var id = UUID()
     var day: Day
     var schedule: Schedule

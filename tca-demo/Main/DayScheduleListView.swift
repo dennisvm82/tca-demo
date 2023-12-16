@@ -17,17 +17,20 @@ struct DayScheduleListView: View {
         DaySchedule(day: .saturday, schedule: .free),
         DaySchedule(day: .sunday, schedule: .free)
     ]
-    
+
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(scheduleArray, id: \.id) { daySchedule in
-                    NavigationLink(destination: DayScheduleDetailView(daySchedule: daySchedule)) {
+                    NavigationLink(value: daySchedule) {
                         DayScheduleRow(daySchedule: daySchedule)
                     }
                 }
             }
             .navigationTitle("Schedule")
+            .navigationDestination(for: DaySchedule.self) { daySchedule in
+                DayScheduleDetailView(daySchedule: daySchedule)
+            }
         }
     }
 }
@@ -39,9 +42,7 @@ struct DayScheduleRow: View {
         HStack {
             Text(daySchedule.day.name)
             Spacer()
-            Rectangle()
-                .fill(daySchedule.schedule.color)
-                .frame(width: 15, height: 15)
+            SquareView(color: daySchedule.schedule.color, size: 15)
         }
     }
 }
