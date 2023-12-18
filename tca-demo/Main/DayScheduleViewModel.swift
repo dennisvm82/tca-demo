@@ -9,24 +9,24 @@ import SwiftUI
 
 final class DayScheduleViewModel: ObservableObject {
     @Published var scheduleArray: [DaySchedule] = []
-    @Published var selectedSchedule: Schedule?
+    @Published var selectedStatus: Status?
     
     init() {
         scheduleArray = [
-            DaySchedule(day: .monday, schedule: .busy),
-            DaySchedule(day: .tuesday, schedule: .busy),
-            DaySchedule(day: .wednesday, schedule: .busy),
-            DaySchedule(day: .thursday, schedule: .veryBusy),
-            DaySchedule(day: .friday, schedule: .veryBusy),
-            DaySchedule(day: .saturday, schedule: .free),
-            DaySchedule(day: .sunday, schedule: .free)
+            DaySchedule(day: .monday, status: .busy),
+            DaySchedule(day: .tuesday, status: .busy),
+            DaySchedule(day: .wednesday, status: .busy),
+            DaySchedule(day: .thursday, status: .veryBusy),
+            DaySchedule(day: .friday, status: .veryBusy),
+            DaySchedule(day: .saturday, status: .free),
+            DaySchedule(day: .sunday, status: .free)
         ]
     }
     
-    func updateSelectedSchedule(for day: Day, with schedule: Schedule) {
+    func updateSelectedStatus(for day: Day, with status: Status) {
         if let index = scheduleArray.firstIndex(where: { $0.day == day }) {
-            scheduleArray[index].schedule = schedule
+            scheduleArray[index].status = status
         }
-        selectedSchedule = schedule
+        selectedStatus = status
     }
 }

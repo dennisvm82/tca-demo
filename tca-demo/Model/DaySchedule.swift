@@ -10,7 +10,7 @@ import SwiftUI
 struct DaySchedule: Identifiable, Hashable {
     var id = UUID()
     var day: Day
-    var schedule: Schedule
+    var status: Status
 }
 
 enum Day {
@@ -36,7 +36,7 @@ enum Day {
     }
 }
 
-enum Schedule: CaseIterable {
+enum Status: CaseIterable {
     case free, busy, veryBusy
     
     var string: String {

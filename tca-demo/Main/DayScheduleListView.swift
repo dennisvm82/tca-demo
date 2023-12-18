@@ -13,28 +13,28 @@ struct DayScheduleListView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.scheduleArray, id: \.id) { daySchedule in
-                    NavigationLink(value: daySchedule) {
-                        DayScheduleListRow(daySchedule: daySchedule)
+                ForEach(viewModel.scheduleArray, id: \.id) { schedule in
+                    NavigationLink(value: schedule) {
+                        DayScheduleListRow(schedule: schedule)
                     }
                 }
             }
             .navigationTitle("Schedule")
-            .navigationDestination(for: DaySchedule.self) { daySchedule in
-                DayScheduleDetailView(daySchedule: daySchedule)
+            .navigationDestination(for: DaySchedule.self) { schedule in
+                DayScheduleDetailView(schedule: schedule)
             }
         }
     }
 }
 
 struct DayScheduleListRow: View {
-    var daySchedule: DaySchedule
+    var schedule: DaySchedule
     
     var body: some View {
         HStack {
-            Text(daySchedule.day.name)
+            Text(schedule.day.name)
             Spacer()
-            SquareView(color: daySchedule.schedule.color, size: 15)
+            SquareView(color: schedule.status.color, size: 15)
         }
     }
 }

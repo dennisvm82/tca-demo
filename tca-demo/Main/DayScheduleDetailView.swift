@@ -10,30 +10,30 @@ import SwiftUI
 struct DayScheduleDetailView: View {
     @EnvironmentObject var viewModel: DayScheduleViewModel
     
-    let daySchedule: DaySchedule
+    let schedule: DaySchedule
     
     var body: some View {
         List {
-            ForEach(Schedule.allCases, id: \.self) { schedule in
-                DayScheduleDetailRow(schedule: schedule, isSelected: schedule == viewModel.selectedSchedule)
+            ForEach(Status.allCases, id: \.self) { status in
+                DayScheduleDetailRow(status: status, isSelected: status == viewModel.selectedStatus)
                     .onTapGesture {
-                        viewModel.updateSelectedSchedule(for: daySchedule.day, with: schedule)
+                        viewModel.updateSelectedStatus(for: schedule.day, with: status)
                     }
             }
         }
-        .onAppear { viewModel.selectedSchedule = daySchedule.schedule }
-        .navigationTitle(daySchedule.day.name)
+        .onAppear { viewModel.selectedStatus = schedule.status}
+        .navigationTitle(schedule.day.name)
     }
 }
 
 struct DayScheduleDetailRow: View {
-    var schedule: Schedule
+    var status: Status
     var isSelected: Bool
     
     var body: some View {
         HStack {
-            SquareView(color: schedule.color, size: 15)
-            Text(schedule.string)
+            SquareView(color: status.color, size: 15)
+            Text(status.string)
             Spacer()
             
             if isSelected {
@@ -41,6 +41,6 @@ struct DayScheduleDetailRow: View {
                     .foregroundStyle(.blue)
             }
         }
-        .contentShape(Rectangle())
+        .contentShape(Rectangle()) // Make the whole row tappable
     }
 }
