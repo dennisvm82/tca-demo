@@ -6,15 +6,23 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct tca_demoApp: App {
-    @ObservedObject var viewModel = DayScheduleViewModel()
-    
     var body: some Scene {
         WindowGroup {
-            DayScheduleListView()
-                .environmentObject(viewModel)
+            let array = [DaySchedule(day: .monday, status: .busy),
+                         DaySchedule(day: .tuesday, status: .busy),
+                         DaySchedule(day: .wednesday, status: .busy),
+                         DaySchedule(day: .thursday, status: .veryBusy),
+                         DaySchedule(day: .friday, status: .veryBusy),
+                         DaySchedule(day: .saturday, status: .free),
+                         DaySchedule(day: .sunday, status: .free)]
+                            
+            DayScheduleListView(store: Store(initialState: DayScheduleListStore.State(dayArray: array), reducer: {
+                DayScheduleListStore()
+            }))
         }
     }
 }

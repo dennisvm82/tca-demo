@@ -6,23 +6,23 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct DayScheduleDetailView: View {
-    @EnvironmentObject var viewModel: DayScheduleViewModel
-    
-    let schedule: DaySchedule
+    let store: StoreOf<DayScheduleDetailStore>
     
     var body: some View {
-        List {
-            ForEach(Status.allCases, id: \.self) { status in
-                DayScheduleDetailRow(status: status, isSelected: status == viewModel.selectedStatus)
-                    .onTapGesture {
-                        viewModel.updateSelectedStatus(for: schedule.day, with: status)
-                    }
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
+            List {
+                ForEach(viewStore.statusTypes, id: \.self) { status in
+                    DayScheduleDetailRow(status: status, isSelected: status == viewStore.daySchedule.status)
+                        .onTapGesture {
+                            store.send(.statusTapped)
+                        }
+                }
             }
+            .navigationTitle(viewStore.daySchedule.status.string)
         }
-        .onAppear { viewModel.selectedStatus = schedule.status}
-        .navigationTitle(schedule.day.name)
     }
 }
 
@@ -41,6 +41,6 @@ struct DayScheduleDetailRow: View {
                     .foregroundStyle(.blue)
             }
         }
-        .contentShape(Rectangle()) // Make the whole row tappable
+        .contentShape(Rectangle())
     }
 }

@@ -6,22 +6,28 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct DayScheduleListView: View {
-    @EnvironmentObject var viewModel: DayScheduleViewModel
+    let store: StoreOf<DayScheduleListStore>
     
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(viewModel.scheduleArray, id: \.id) { schedule in
-                    NavigationLink(value: schedule) {
-                        DayScheduleListRow(schedule: schedule)
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
+            NavigationStack {
+                List {
+                    ForEach(viewStore.state.dayArray, id: \.id) { schedule in
+                        NavigationLink(value: schedule) {
+                            DayScheduleListRow(schedule: schedule)
+                        }
                     }
                 }
-            }
-            .navigationTitle("Schedule")
-            .navigationDestination(for: DaySchedule.self) { schedule in
-                DayScheduleDetailView(schedule: schedule)
+                .navigationTitle("Schedule")
+                .navigationDestination(for: DaySchedule.self) { schedule in
+                    IfLetStore(store.scope(state: \.scheduleDetailState, 
+                                           action: DayScheduleListStore.Action.dayTapped)) { store in
+                        DayScheduleDetailView(store: store)
+                    }
+                }
             }
         }
     }
