@@ -10,20 +10,23 @@ import ComposableArchitecture
 
 struct DayScheduleListStore: Reducer {
     struct State: Equatable {
-        var dayArray: [DaySchedule]
-        var scheduleDetailState: DayScheduleDetailStore.State?
+        var path = StackState<DayScheduleDetailStore.State>()
+        var days: [DaySchedule]
     }
     
     enum Action: Equatable {
-        case dayTapped(DayScheduleDetailStore.Action)
+        case path(StackAction<DayScheduleDetailStore.State, DayScheduleDetailStore.Action>)
     }
     
-    var body: some Reducer<State, Action> {
+    var body: some ReducerOf<DayScheduleListStore> {
         Reduce { state, action in
             switch action {
-            case .dayTapped:
+            case .path:
                 return .none
             }
+        }
+        .forEach(\.path, action: /Action.path) {
+            DayScheduleDetailStore()
         }
     }
 }

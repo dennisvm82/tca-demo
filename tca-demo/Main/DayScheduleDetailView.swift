@@ -14,14 +14,14 @@ struct DayScheduleDetailView: View {
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             List {
-                ForEach(viewStore.statusTypes, id: \.self) { status in
+                ForEach(Status.allCases, id: \.self) { status in
                     DayScheduleDetailRow(status: status, isSelected: status == viewStore.daySchedule.status)
                         .onTapGesture {
-                            store.send(.statusTapped)
+                            store.send(.statusTapped(viewStore.daySchedule.day, status))
                         }
                 }
             }
-            .navigationTitle(viewStore.daySchedule.status.string)
+            .navigationTitle(viewStore.daySchedule.day.name)
         }
     }
 }

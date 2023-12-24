@@ -12,23 +12,19 @@ struct DayScheduleListView: View {
     let store: StoreOf<DayScheduleListStore>
     
     var body: some View {
-        WithViewStore(self.store, observe: { $0 }) { viewStore in
-            NavigationStack {
+        NavigationStackStore(self.store.scope(state: \.path, action: { .path($0) })) {
+            WithViewStore(self.store, observe: { $0 }) { viewStore in
                 List {
-                    ForEach(viewStore.state.dayArray, id: \.id) { schedule in
-                        NavigationLink(value: schedule) {
+                    ForEach(viewStore.state.days, id: \.id) { schedule in
+                        NavigationLink(state: DayScheduleDetailStore.State(daySchedule: schedule)) {
                             DayScheduleListRow(schedule: schedule)
                         }
                     }
                 }
                 .navigationTitle("Schedule")
-                .navigationDestination(for: DaySchedule.self) { schedule in
-                    IfLetStore(store.scope(state: \.scheduleDetailState, 
-                                           action: DayScheduleListStore.Action.dayTapped)) { store in
-                        DayScheduleDetailView(store: store)
-                    }
-                }
             }
+        } destination: { store in
+            DayScheduleDetailView(store: store)
         }
     }
 }
