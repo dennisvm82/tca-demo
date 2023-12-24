@@ -17,7 +17,7 @@ struct DayScheduleDetailView: View {
                 ForEach(Status.allCases, id: \.self) { status in
                     DayScheduleDetailRow(status: status, isSelected: status == viewStore.daySchedule.status)
                         .onTapGesture {
-                            store.send(.statusTapped(viewStore.daySchedule.day, status))
+                            store.send(.statusTapped(status))
                         }
                 }
             }

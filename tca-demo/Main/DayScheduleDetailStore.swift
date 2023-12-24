@@ -14,23 +14,16 @@ struct DayScheduleDetailStore: Reducer {
     }
     
     enum Action: Equatable {
-        case statusTapped(Day, Status)
+        case statusTapped(Status)
     }
     
     var body: some ReducerOf<DayScheduleDetailStore> {
         Reduce { state, action in
             switch action {
-            case .statusTapped(let day, let status):
-                updateSelectedStatus(for: day, with: status)
+            case .statusTapped(let status):
+                state.daySchedule.status = status
                 return .none
             }
         }
-    }
-    
-    func updateSelectedStatus(for day: Day, with status: Status) {
-//        if let index = scheduleArray.firstIndex(where: { $0.day == day }) {
-//            scheduleArray[index].status = status
-//        }
-//        selectedStatus = status
     }
 }
