@@ -16,18 +16,17 @@ struct DayScheduleListStore: Reducer {
     
     enum Action: Equatable {
         case path(StackAction<DayScheduleDetailStore.State, DayScheduleDetailStore.Action>)
-        case dayTapped(DaySchedule)
     }
     
-    var body: some ReducerOf<DayScheduleListStore> {
+    var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .path:
-                return .none
-            case .dayTapped(let daySchedule):
-                if let index = state.days.firstIndex(where: { $0.day == daySchedule.day }) {
-                    state.days[index].status = daySchedule.status
+            case let .path(.element(id: id, action: .statusTapped(schedule, status))):
+                if let index = state.days.firstIndex(where: { $0.day == schedule.day }) {
+                    state.days[index].status = status
                 }
+                return .none
+            default:
                 return .none
             }
         }

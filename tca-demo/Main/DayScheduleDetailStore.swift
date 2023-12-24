@@ -10,18 +10,18 @@ import ComposableArchitecture
 
 struct DayScheduleDetailStore: Reducer {
     struct State: Equatable {
-        var daySchedule: DaySchedule
+        var schedule: DaySchedule
     }
     
     enum Action: Equatable {
-        case statusTapped(Status)
+        case statusTapped(DaySchedule, Status)
     }
     
-    var body: some ReducerOf<DayScheduleDetailStore> {
+    var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .statusTapped(let status):
-                state.daySchedule.status = status
+            case .statusTapped(_, let status):
+                state.schedule.status = status
                 return .none
             }
         }

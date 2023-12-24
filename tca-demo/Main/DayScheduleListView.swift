@@ -16,7 +16,7 @@ struct DayScheduleListView: View {
             WithViewStore(self.store, observe: { $0 }) { viewStore in
                 List {
                     ForEach(viewStore.state.days, id: \.id) { schedule in
-                        NavigationLink(state: DayScheduleDetailStore.State(daySchedule: schedule)) {
+                        NavigationLink(state: DayScheduleDetailStore.State(schedule: schedule)) {
                             DayScheduleListRow(schedule: schedule)
                         }
                     }

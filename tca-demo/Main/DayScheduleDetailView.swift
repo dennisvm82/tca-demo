@@ -15,13 +15,13 @@ struct DayScheduleDetailView: View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             List {
                 ForEach(Status.allCases, id: \.self) { status in
-                    DayScheduleDetailRow(status: status, isSelected: status == viewStore.daySchedule.status)
+                    DayScheduleDetailRow(status: status, isSelected: status == viewStore.schedule.status)
                         .onTapGesture {
-                            store.send(.statusTapped(status))
+                            store.send(.statusTapped(viewStore.schedule, status))
                         }
                 }
             }
-            .navigationTitle(viewStore.daySchedule.day.name)
+            .navigationTitle(viewStore.schedule.day.name)
         }
     }
 }
