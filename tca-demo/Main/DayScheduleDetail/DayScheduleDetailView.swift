@@ -9,6 +9,8 @@ import SwiftUI
 import ComposableArchitecture
 
 struct DayScheduleDetailView: View {
+    @Environment(\.dismiss) var dismiss
+    
     let store: StoreOf<DayScheduleDetailStore>
     
     var body: some View {
@@ -16,8 +18,10 @@ struct DayScheduleDetailView: View {
             List {
                 ForEach(Status.allCases, id: \.self) { status in
                     DayScheduleDetailRow(status: status, isSelected: status == viewStore.schedule.status)
+                        .allowsHitTesting(status != viewStore.schedule.status)
                         .onTapGesture {
                             store.send(.statusTapped(status))
+                            dismiss()
                         }
                 }
             }
