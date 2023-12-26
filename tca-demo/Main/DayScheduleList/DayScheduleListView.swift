@@ -12,8 +12,8 @@ struct DayScheduleListView: View {
     let store: StoreOf<DayScheduleListStore>
     
     var body: some View {
-        NavigationStackStore(self.store.scope(state: \.path, action: { .path($0) })) {
-            WithViewStore(self.store, observe: { $0 }) { viewStore in
+        NavigationStackStore(store.scope(state: \.path, action: { .path($0) })) {
+            WithViewStore(store, observe: { $0 }) { viewStore in
                 List {
                     ForEach(viewStore.state.days, id: \.id) { schedule in
                         NavigationLink(state: DayScheduleDetailStore.State(schedule: schedule)) {

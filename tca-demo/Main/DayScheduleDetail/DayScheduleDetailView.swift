@@ -12,12 +12,12 @@ struct DayScheduleDetailView: View {
     let store: StoreOf<DayScheduleDetailStore>
     
     var body: some View {
-        WithViewStore(self.store, observe: { $0 }) { viewStore in
+        WithViewStore(store, observe: { $0 }) { viewStore in
             List {
                 ForEach(Status.allCases, id: \.self) { status in
                     DayScheduleDetailRow(status: status, isSelected: status == viewStore.schedule.status)
                         .onTapGesture {
-                            store.send(.statusTapped(viewStore.schedule, status))
+                            store.send(.statusTapped(status))
                         }
                 }
             }

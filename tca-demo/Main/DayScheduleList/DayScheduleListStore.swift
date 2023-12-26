@@ -11,7 +11,7 @@ import ComposableArchitecture
 struct DayScheduleListStore: Reducer {
     struct State: Equatable {
         var path = StackState<DayScheduleDetailStore.State>()
-        var days: [DaySchedule]
+        var days = IdentifiedArrayOf<DaySchedule>()
     }
     
     enum Action: Equatable {
@@ -21,9 +21,9 @@ struct DayScheduleListStore: Reducer {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case let .path(.element(id: id, action: .statusTapped(schedule, status))):
-                if let index = state.days.firstIndex(where: { $0.day == schedule.day }) {
-                    state.days[index].status = status
+            case let .path(.element(id, action: .statusTapped(status))):
+                if let dayId = state.path[id: id]?.schedule.id {
+                    state.days[id: dayId]?.status = status
                 }
                 return .none
             default:

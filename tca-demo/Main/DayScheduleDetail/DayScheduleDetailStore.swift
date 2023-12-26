@@ -14,13 +14,13 @@ struct DayScheduleDetailStore: Reducer {
     }
     
     enum Action: Equatable {
-        case statusTapped(DaySchedule, Status)
+        case statusTapped(Status)
     }
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .statusTapped(_, let status):
+            case .statusTapped(let status):
                 state.schedule.status = status
                 return .none
             }
