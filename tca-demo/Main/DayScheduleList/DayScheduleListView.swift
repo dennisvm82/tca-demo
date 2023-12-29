@@ -22,6 +22,9 @@ struct DayScheduleListView: View {
                     }
                 }
                 .navigationTitle("Schedule")
+                .onAppear {
+                    viewStore.send(.createDayScheduleList)
+                }
             }
         } destination: { store in
             DayScheduleDetailView(store: store)
