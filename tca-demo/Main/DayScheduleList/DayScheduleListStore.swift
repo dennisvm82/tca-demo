@@ -31,17 +31,14 @@ struct DayScheduleListStore: Reducer {
                         }
                     }
                 }
-            case .fetchDayScheduleResponse(let response):
-                switch response {
-                case .success(let result):
-                    if state.daySchedule.isEmpty {
-                        state.daySchedule = result
-                    }
-                    return .none
-                case .failure(let error):
-                    print("Failed to fetch data:", error)
-                    return .none
+            case .fetchDayScheduleResponse(.success(let result)):
+                if state.daySchedule.isEmpty {
+                    state.daySchedule = result
                 }
+                return .none
+            case .fetchDayScheduleResponse(.failure(let error)):
+                print("Failed to fetch data:", error)
+                return .none
             case let .path(.element(id, action: .statusTapped(status))):
                 if let dayId = state.path[id: id]?.schedule.id {
                     state.daySchedule[id: dayId]?.status = status
