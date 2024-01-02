@@ -15,7 +15,7 @@ struct DayScheduleListView: View {
         NavigationStackStore(store.scope(state: \.path, action: { .path($0) })) {
             WithViewStore(store, observe: { $0 }) { viewStore in
                 List {
-                    ForEach(viewStore.state.days, id: \.id) { schedule in
+                    ForEach(viewStore.state.daySchedule, id: \.id) { schedule in
                         NavigationLink(state: DayScheduleDetailStore.State(schedule: schedule)) {
                             DayScheduleListRow(schedule: schedule)
                         }
@@ -23,7 +23,7 @@ struct DayScheduleListView: View {
                 }
                 .navigationTitle("Schedule")
                 .onAppear {
-                    viewStore.send(.createDayScheduleList)
+                    viewStore.send(.onAppear)
                 }
             }
         } destination: { store in

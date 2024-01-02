@@ -1,0 +1,30 @@
+[
+    {
+        "day": "monday",
+        "status": "busy"
+    },
+    {
+        "day": "tuesday",
+        "status": "busy"
+    },
+    {
+        "day": "wednesday",
+        "status": "busy"
+    },
+    {
+        "day": "thursday",
+        "status": "veryBusy"
+    },
+    {
+        "day": "friday",
+        "status": "veryBusy"
+    },
+    {
+        "day": "saturday",
+        "status": "free"
+    },
+    {
+        "day": "sunday",
+        "status": "free"
+    }
+]

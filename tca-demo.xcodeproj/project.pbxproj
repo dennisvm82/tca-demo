@@ -15,6 +15,8 @@
 		C09BC8722B25E09E00715AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09BC8712B25E09E00715AA1 /* Assets.xcassets */; };
 		C09BC8752B25E09E00715AA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09BC8742B25E09E00715AA1 /* Preview Assets.xcassets */; };
 		C09BC87D2B25E12900715AA1 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C09BC87C2B25E12900715AA1 /* ComposableArchitecture */; };
+		C0DDC91E2B3FC641002173E8 /* DaySchedule.json in Resources */ = {isa = PBXBuildFile; fileRef = C0DDC91D2B3FC641002173E8 /* DaySchedule.json */; };
+		C0DDC9202B3FC67B002173E8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DDC91F2B3FC67B002173E8 /* DataManager.swift */; };
 		C0F090532B25EBDA002D5A58 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F090522B25EBDA002D5A58 /* Color+Extensions.swift */; };
 		C0F090572B25EFA6002D5A58 /* DayScheduleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F090562B25EFA6002D5A58 /* DayScheduleDetailView.swift */; };
 		C0F0905C2B25EFFE002D5A58 /* DaySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0905B2B25EFFE002D5A58 /* DaySchedule.swift */; };
@@ -29,6 +31,8 @@
 		C09BC86F2B25E09D00715AA1 /* DayScheduleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayScheduleListView.swift; sourceTree = "<group>"; };
 		C09BC8712B25E09E00715AA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C09BC8742B25E09E00715AA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C0DDC91D2B3FC641002173E8 /* DaySchedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DaySchedule.json; sourceTree = "<group>"; };
+		C0DDC91F2B3FC67B002173E8 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C0F090522B25EBDA002D5A58 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		C0F090562B25EFA6002D5A58 /* DayScheduleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayScheduleDetailView.swift; sourceTree = "<group>"; };
 		C0F0905B2B25EFFE002D5A58 /* DaySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySchedule.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				C09BC86D2B25E09D00715AA1 /* tca_demoApp.swift */,
+				C0DDC91B2B3FC57F002173E8 /* Service */,
 				C0F0905A2B25EFE8002D5A58 /* Model */,
 				C0F090512B25EBC5002D5A58 /* Extension */,
 				C02E46F42B2DDB5000114CEE /* Helper */,
@@ -117,6 +122,15 @@
 				C05AAE4B2B38746B002AF70A /* DayScheduleDetail */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		C0DDC91B2B3FC57F002173E8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C0DDC91F2B3FC67B002173E8 /* DataManager.swift */,
+				C0DDC91D2B3FC641002173E8 /* DaySchedule.json */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		C0F090512B25EBC5002D5A58 /* Extension */ = {
@@ -200,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C09BC8752B25E09E00715AA1 /* Preview Assets.xcassets in Resources */,
+				C0DDC91E2B3FC641002173E8 /* DaySchedule.json in Resources */,
 				C09BC8722B25E09E00715AA1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0DDC9202B3FC67B002173E8 /* DataManager.swift in Sources */,
 				C09BC8702B25E09D00715AA1 /* DayScheduleListView.swift in Sources */,
 				C04FC64F2B307EBD00F06641 /* DayScheduleListStore.swift in Sources */,
 				C0F090572B25EFA6002D5A58 /* DayScheduleDetailView.swift in Sources */,
