@@ -10,6 +10,7 @@ import ComposableArchitecture
 
 struct DayScheduleListStore: Reducer {
     struct State: Equatable {
+        @PresentationState var alert: AlertState<Action.Alert>?
         var path = StackState<DayScheduleDetailStore.State>()
         var daySchedule: IdentifiedArrayOf<DaySchedule> = []
     }
@@ -18,6 +19,11 @@ struct DayScheduleListStore: Reducer {
         case onAppear
         case fetchDayScheduleResponse(Result<IdentifiedArrayOf<DaySchedule>, Error>)
         case path(StackAction<DayScheduleDetailStore.State, DayScheduleDetailStore.Action>)
+        case alert(PresentationAction<Alert>)
+        
+        enum Alert: Equatable {
+            case alertDismissed
+        }
     }
     
     var body: some ReducerOf<Self> {
@@ -37,7 +43,14 @@ struct DayScheduleListStore: Reducer {
                 }
                 return .none
             case .fetchDayScheduleResponse(.failure(let error)):
-                print("Failed to fetch data:", error)
+                state.alert = AlertState(
+                    title: TextState("Error"),
+                    message: TextState(error.localizedDescription),
+                    dismissButton: .default(TextState("OK"), action: .send(.alertDismissed))
+                )
+                return .none
+            case .alert(.presented(.alertDismissed)):
+                state.alert = nil
                 return .none
             case let .path(.element(id, action: .statusTapped(status))):
                 if let dayId = state.path[id: id]?.schedule.id {

@@ -21,6 +21,7 @@ struct DayScheduleListView: View {
                         }
                     }
                 }
+                .alert(store: store.scope(state: \.$alert, action: { .alert($0) }))
                 .navigationTitle("Schedule")
                 .onAppear {
                     viewStore.send(.onAppear)
