@@ -11,22 +11,20 @@ import ComposableArchitecture
 struct DayScheduleDetailView: View {
     @Environment(\.dismiss) var dismiss
     
-    let store: StoreOf<DayScheduleDetailStore>
-    
+    @Bindable var store: StoreOf<DayScheduleDetailStore>
+
     var body: some View {
-        WithViewStore(store, observe: { $0 }) { viewStore in
-            List {
-                ForEach(Status.allCases, id: \.self) { status in
-                    DayScheduleDetailRow(status: status, isSelected: status == viewStore.schedule.status)
-                        .allowsHitTesting(status != viewStore.schedule.status)
-                        .onTapGesture {
-                            store.send(.statusTapped(status))
-                            dismiss()
-                        }
-                }
+        List {
+            ForEach(Status.allCases, id: \.self) { status in
+                DayScheduleDetailRow(status: status, isSelected: status == store.schedule.status)
+                    .allowsHitTesting(status != store.schedule.status)
+                    .onTapGesture {
+                        store.send(.statusTapped(status))
+                        dismiss()
+                    }
             }
-            .navigationTitle(viewStore.schedule.day.name)
         }
+        .navigationTitle(store.schedule.day.name)
     }
 }
 

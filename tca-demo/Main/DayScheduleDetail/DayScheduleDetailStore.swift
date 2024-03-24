@@ -8,12 +8,14 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct DayScheduleDetailStore: Reducer {
+@Reducer
+struct DayScheduleDetailStore {
+    @ObservableState
     struct State: Equatable {
         var schedule: DaySchedule
     }
     
-    enum Action: Equatable {
+    enum Action {
         case statusTapped(Status)
     }
     

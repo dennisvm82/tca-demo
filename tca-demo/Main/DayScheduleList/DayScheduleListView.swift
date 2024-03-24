@@ -9,26 +9,26 @@ import SwiftUI
 import ComposableArchitecture
 
 struct DayScheduleListView: View {
-    let store: StoreOf<DayScheduleListStore>
-    
+    @Bindable var store: StoreOf<DayScheduleListStore>
+
     var body: some View {
-        NavigationStackStore(store.scope(state: \.path, action: { .path($0) })) {
-            WithViewStore(store, observe: { $0 }) { viewStore in
-                List {
-                    ForEach(viewStore.state.daySchedule, id: \.id) { schedule in
-                        NavigationLink(state: DayScheduleDetailStore.State(schedule: schedule)) {
-                            DayScheduleListRow(schedule: schedule)
-                        }
+        NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
+            List {
+                ForEach(store.state.daySchedule, id: \.id) { schedule in
+                    NavigationLink(state: DayScheduleListStore.Path.State.scheduleDetail(DayScheduleDetailStore.State(schedule: schedule))) {
+                        DayScheduleListRow(schedule: schedule)
                     }
                 }
-                .alert(store: store.scope(state: \.$alert, action: { .alert($0) }))
-                .navigationTitle("Schedule")
-                .onAppear {
-                    viewStore.send(.onAppear)
-                }
+            }
+            .navigationTitle("Schedule")
+            .onAppear {
+                store.send(.loadData)
             }
         } destination: { store in
-            DayScheduleDetailView(store: store)
+            switch store.case {
+            case let .scheduleDetail(store):
+                DayScheduleDetailView(store: store)
+            }
         }
     }
 }
