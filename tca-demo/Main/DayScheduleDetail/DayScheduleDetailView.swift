@@ -39,7 +39,7 @@ struct DayScheduleDetailRow: View {
             Spacer()
             
             if isSelected {
-                Image(systemName: "checkmark")
+                Image.SFSymbols.checkmark
                     .foregroundStyle(.blue)
             }
         }

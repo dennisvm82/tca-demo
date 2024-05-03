@@ -10,6 +10,7 @@
 		C02E46F62B2DDB6700114CEE /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E46F52B2DDB6700114CEE /* SquareView.swift */; };
 		C04FC64F2B307EBD00F06641 /* DayScheduleListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FC64E2B307EBD00F06641 /* DayScheduleListStore.swift */; };
 		C04FC6512B308DAC00F06641 /* DayScheduleDetailStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FC6502B308DAC00F06641 /* DayScheduleDetailStore.swift */; };
+		C05434512BE4CF36005CAFAF /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05434502BE4CF36005CAFAF /* Image+Extensions.swift */; };
 		C09BC86E2B25E09D00715AA1 /* tca_demoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09BC86D2B25E09D00715AA1 /* tca_demoApp.swift */; };
 		C09BC8702B25E09D00715AA1 /* DayScheduleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09BC86F2B25E09D00715AA1 /* DayScheduleListView.swift */; };
 		C09BC8722B25E09E00715AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09BC8712B25E09E00715AA1 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		C02E46F52B2DDB6700114CEE /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
 		C04FC64E2B307EBD00F06641 /* DayScheduleListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayScheduleListStore.swift; sourceTree = "<group>"; };
 		C04FC6502B308DAC00F06641 /* DayScheduleDetailStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayScheduleDetailStore.swift; sourceTree = "<group>"; };
+		C05434502BE4CF36005CAFAF /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		C09BC86A2B25E09D00715AA1 /* tca-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tca-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09BC86D2B25E09D00715AA1 /* tca_demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tca_demoApp.swift; sourceTree = "<group>"; };
 		C09BC86F2B25E09D00715AA1 /* DayScheduleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayScheduleListView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				C0F090522B25EBDA002D5A58 /* Color+Extensions.swift */,
+				C05434502BE4CF36005CAFAF /* Image+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				C04FC64F2B307EBD00F06641 /* DayScheduleListStore.swift in Sources */,
 				C0F090572B25EFA6002D5A58 /* DayScheduleDetailView.swift in Sources */,
 				C04FC6512B308DAC00F06641 /* DayScheduleDetailStore.swift in Sources */,
+				C05434512BE4CF36005CAFAF /* Image+Extensions.swift in Sources */,
 				C09BC86E2B25E09D00715AA1 /* tca_demoApp.swift in Sources */,
 				C02E46F62B2DDB6700114CEE /* SquareView.swift in Sources */,
 				C0F090532B25EBDA002D5A58 /* Color+Extensions.swift in Sources */,
