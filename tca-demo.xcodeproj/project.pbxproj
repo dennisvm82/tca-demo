@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C02E46F62B2DDB6700114CEE /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E46F52B2DDB6700114CEE /* SquareView.swift */; };
+		C0475FC72BF8E079001AF569 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0475FC62BF8E079001AF569 /* String+Extensions.swift */; };
 		C04FC64F2B307EBD00F06641 /* DayScheduleListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FC64E2B307EBD00F06641 /* DayScheduleListStore.swift */; };
 		C04FC6512B308DAC00F06641 /* DayScheduleDetailStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FC6502B308DAC00F06641 /* DayScheduleDetailStore.swift */; };
 		C05434512BE4CF36005CAFAF /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05434502BE4CF36005CAFAF /* Image+Extensions.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		C02E46F52B2DDB6700114CEE /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
+		C0475FC62BF8E079001AF569 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		C04FC64E2B307EBD00F06641 /* DayScheduleListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayScheduleListStore.swift; sourceTree = "<group>"; };
 		C04FC6502B308DAC00F06641 /* DayScheduleDetailStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayScheduleDetailStore.swift; sourceTree = "<group>"; };
 		C05434502BE4CF36005CAFAF /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				C0F090522B25EBDA002D5A58 /* Color+Extensions.swift */,
 				C05434502BE4CF36005CAFAF /* Image+Extensions.swift */,
+				C0475FC62BF8E079001AF569 /* String+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0DDC9202B3FC67B002173E8 /* DataManager.swift in Sources */,
+				C0475FC72BF8E079001AF569 /* String+Extensions.swift in Sources */,
 				C09BC8702B25E09D00715AA1 /* DayScheduleListView.swift in Sources */,
 				C04FC64F2B307EBD00F06641 /* DayScheduleListStore.swift in Sources */,
 				C0F090572B25EFA6002D5A58 /* DayScheduleDetailView.swift in Sources */,

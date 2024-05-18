@@ -35,7 +35,7 @@ struct DayScheduleDetailRow: View {
     var body: some View {
         HStack {
             SquareView(color: status.color, size: 15)
-            Text(status.string)
+            Text(status.name)
             Spacer()
             
             if isSelected {

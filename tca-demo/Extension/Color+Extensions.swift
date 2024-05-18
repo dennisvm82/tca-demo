@@ -8,7 +8,9 @@
 import SwiftUI
 
 extension Color {
-    static let scheduleFreeColor = Color(.green)
-    static let scheduleBusyColor = Color(.orange)
-    static let scheduleVeryBusyColor = Color(.red)
+    enum Status {
+        static var free: Color { Color(.green) }
+        static var busy: Color { Color(.orange) }
+        static var veryBusy: Color { Color(.red) }
+    }
 }
