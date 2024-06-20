@@ -30,19 +30,19 @@ enum Day: String, Decodable {
     var name: String {
         switch self {
         case .monday:
-            String.Day.monday
+            .Day.monday
         case .tuesday:
-            String.Day.tuesday
+            .Day.tuesday
         case .wednesday:
-            String.Day.wednesday
+            .Day.wednesday
         case .thursday:
-            String.Day.thursday
+            .Day.thursday
         case .friday:
-            String.Day.friday
+            .Day.friday
         case .saturday:
-            String.Day.saturday
+            .Day.saturday
         case .sunday:
-            String.Day.sunday
+            .Day.sunday
         }
     }
 }
@@ -53,22 +53,22 @@ enum Status: String, Decodable, CaseIterable {
     var name: String {
         switch self {
         case .free:
-            String.Status.free
+            .Status.free
         case .busy:
-            String.Status.busy
+            .Status.busy
         case .veryBusy:
-            String.Status.veryBusy
+            .Status.veryBusy
         }
     }
     
     var color: Color {
         switch self {
         case .free:
-            Color.Status.free
+            .Status.free
         case .busy:
-            Color.Status.busy
+            .Status.busy
         case .veryBusy:
-            Color.Status.veryBusy
+            .Status.veryBusy
         }
     }
 }
