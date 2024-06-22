@@ -44,3 +44,10 @@ struct DayScheduleListRow: View {
         }
     }
 }
+
+struct DayScheduleListView_Previews: PreviewProvider {
+    static var previews: some View {
+        DayScheduleListView(store: Store(initialState: DayScheduleListStore.State(),
+                            reducer: { DayScheduleListStore() }))
+    }
+}
