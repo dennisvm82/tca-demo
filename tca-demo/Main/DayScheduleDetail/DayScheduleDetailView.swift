@@ -28,18 +28,18 @@ struct DayScheduleDetailView: View {
     }
 }
 
-struct DayScheduleDetailRow: View {
+private struct DayScheduleDetailRow: View {
     var status: Status
     var isSelected: Bool
     
     var body: some View {
         HStack {
-            SquareView(color: status.color, size: 15)
+            SquareView(color: status.color)
             Text(status.name)
             Spacer()
             
             if isSelected {
-                Image.SFSymbols.checkmark
+                Image(systemName: "checkmark")
                     .foregroundStyle(.blue)
             }
         }

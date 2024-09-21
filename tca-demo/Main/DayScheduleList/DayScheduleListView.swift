@@ -33,14 +33,14 @@ struct DayScheduleListView: View {
     }
 }
 
-struct DayScheduleListRow: View {
+private struct DayScheduleListRow: View {
     var schedule: DaySchedule
     
     var body: some View {
         HStack {
             Text(schedule.day.name)
             Spacer()
-            SquareView(color: schedule.status.color, size: 15)
+            SquareView(color: schedule.status.color)
         }
     }
 }

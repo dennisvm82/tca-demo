@@ -26,49 +26,27 @@ struct DaySchedule: Decodable, Identifiable, Hashable {
 
 enum Day: String, Decodable {
     case monday, tuesday, wednesday, thursday, friday, saturday, sunday
-    
+
     var name: String {
-        switch self {
-        case .monday:
-            .Day.monday
-        case .tuesday:
-            .Day.tuesday
-        case .wednesday:
-            .Day.wednesday
-        case .thursday:
-            .Day.thursday
-        case .friday:
-            .Day.friday
-        case .saturday:
-            .Day.saturday
-        case .sunday:
-            .Day.sunday
-        }
-    }
+         return rawValue.capitalized
+     }
 }
 
 enum Status: String, Decodable, CaseIterable {
     case free, busy, veryBusy
     
     var name: String {
-        switch self {
-        case .free:
-            .Status.free
-        case .busy:
-            .Status.busy
-        case .veryBusy:
-            .Status.veryBusy
-        }
-    }
-    
+         return rawValue.capitalized
+     }
+
     var color: Color {
         switch self {
         case .free:
-            .Status.free
+            return .green
         case .busy:
-            .Status.busy
+            return .orange
         case .veryBusy:
-            .Status.veryBusy
+            return .red
         }
     }
 }
